@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bibliographie</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header id="nav-placeholder"></header>
+
+  <!-- Bannière -->
+  <div id="banner-placeholder"></div>
+
+  <script>
+    // Nav FR
+  fetch("nav.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("nav-placeholder").innerHTML = html;
+    })
+  
+  fetch("banner.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("banner-placeholder").innerHTML = html;
+      document.body.classList.add("has-banner");
+    })
+    
+    </script>
+
+  <!-- Contenu -->
+  <main class="page page--left-sidebar page--bibliography">
+
+    <aside class="sidebar sidebar--bluebar" aria-label="Sections bibliographiques">
+        <ul>
+            <li><a href="/fr/bibliography/neuroscience.html">Neuroscience</a></li>
+            <li><a href="/fr/bibliography/anthropology.html">Anthropologie</a></li>
+            <li><a href="/fr/bibliography/developmental-psychology.html">Psychologie développementale</a></li>
+            <li><a href="/fr/bibliography/biology.html">Biologie</a></li>
+            <li><a href="/fr/bibliography/artificial-intelligence.html">Intelligence artificielle</a></li>
+        </ul>
+    </aside>
+
+    <article>
+       <article>
+    <h1>Bibliographie</h1>
+
+    <p>
+      Cette section rassemble les articles scientifiques qui nourrissent la réflexion développée sur ce site.
+      Les textes originaux sont conservés dans leur langue de publication, mais chaque article pourra être accompagné
+      d’une synthèse personnelle et d’un lien avec mon travail.
+    </p>
+  </article>
+
+
+  </main>
+</body>
+</html>

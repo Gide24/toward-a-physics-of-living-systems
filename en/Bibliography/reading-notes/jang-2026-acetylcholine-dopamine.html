@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jang et al. 2026</title>
+  <link rel="stylesheet" href="../../../css/style.css" />
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header id="nav-placeholder"></header>
+
+  <!-- Banner -->
+  <div id="banner-placeholder"></div>
+
+  <script>
+    fetch("../../nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
+
+    fetch("../../banner.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner");
+      });
+  </script>
+
+  <main class="page page--left-sidebar page--bibliography">
+
+    <aside class="sidebar sidebar--bluebar" aria-label="Bibliography fields">
+
+      <ul>
+        <li><a href="/en/bibliography/neuroscience.html"> Neuroscience </a></li>
+        <li><a href="/en/bibliography/anthropology.html">Anthropology</a></li>
+        <li><a href="/en/bibliography/developmental-psychology.html">Developmental Psychology</a></li>
+        <li><a href="/en/bibliography/biology.html">Biology</a></li>
+        <li><a href="/en/bibliography/artificial-intelligence.html">Artificial Intelligence</a></li>
+      </ul>
+
+    </aside>
+
+    <article>
+
+      <h1>
+        Acetylcholine Demixes Heterogeneous Dopamine Signals for Learning and Moving
+      </h1>
+
+      <h2>Reference</h2>
+
+      <p>
+        Jang, Hee Jae, et al. “Acetylcholine Demixes Heterogeneous
+        Dopamine Signals for Learning and Moving.”
+        <em>Nature Neuroscience</em>,
+        vol. 29, Apr. 2026, pp. 840–850.
+      </p>
+
+      <h2>Personal summary</h2>
+
+      <p>
+        This article explores how the brain appears to differentiate signals
+        related to learning from those related to movement. The authors show
+        that dopamine does not always act in the same way: its effect depends
+        on its temporal relationship with acetylcholine.
+      </p>
+
+      <p>
+        When dopamine appears shortly after specific decreases in acetylcholine
+        activity, it seems to participate more strongly in learning and future
+        behavioral modifications.
+      </p>
+
+      <p>
+        When dopamine appears in another temporal configuration, it seems more
+        associated with movement vigor and movement execution.
+      </p>
+
+      <p>
+        The article therefore suggests that the brain does not process chemical
+        signals only according to their nature, but also according to their
+        temporal organization.
+      </p>
+
+      <h2>Relevance for the theoretical work</h2>
+
+      <p>
+        This article is particularly interesting because it reinforces the idea
+        that the brain does not function as a static system in which one molecule
+        has one unique function.
+      </p>
+
+      <p>
+        It introduces a more dynamic perspective in which context, temporality,
+        and interactions between multiple systems must be considered simultaneously.
+        Movement and learning appear here as dimensions that may not be entirely
+        separable.
+      </p>
+
+      <p>
+        This article can be connected with the ideas developed on this website
+        regarding the relationship between motor activity and memory, the influence
+        of the environment on adaptive systems, and the way constraints may modify
+        the organization of a living system.
+      </p>
+
+      <h2>Original article</h2>
+
+      <p>
+        <a href="/articles/jang-2026-acetylcholine-dopamine-learning-moving.pdf">
+          Open original PDF
+        </a>
+      </p>
+
+    </article>
+
+  </main>
+
+</body>
+</html>

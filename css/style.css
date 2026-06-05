@@ -1,0 +1,425 @@
+/* ===========================
+   Reset & Base
+   =========================== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+:root {
+  --bg: #fafafa;
+  --panel: #f4f5f7;
+  --muted: #666666;
+}
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: var(--bg);
+
+  /* Layout shell */
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header, content, footer */
+  min-height: 100svh;
+}
+
+/* ===========================
+   Navigation
+   =========================== */
+nav {
+  background-color: #fff;
+  /* top/bottom, then left/right (more room on the right) */
+  padding-block: 10px;
+  padding-inline: 16px 90px; /* left, right */
+  text-align: center; /* fallback if flex fails */
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end; /* push links to the right */
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600; /* slightly lighter than bold */
+  font-size: inherit;
+  font-family: "Times New Roman", Times, serif;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: red;
+}
+
+/* =========================
+   AI page typography
+   ========================= */
+
+.page--ai article h1 {
+  font-size: 1.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.page--ai article h2 {
+  font-size: 1.3rem;
+  margin-top: 2.2rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.page--ai article p {
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: none;
+}
+.subtitle {
+  margin-top: 0.4em;
+  line-height: 1.2;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* ===========================
+   Page Layout
+   =========================== */
+
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Vertical drop for the sidebar */
+.page--left-sidebar .sidebar {
+  margin-top: var(--sidebar-offset, 150px);
+  position: relative;     /* neutralize any sticky/top rules */
+  float: none;
+}
+
+.page--left-sidebar > article {
+  max-width: none;
+  min-width: 0;           /* prevents overflow issues */
+}
+
+.page.page--left-sidebar {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 2fr); /* sidebar | content */
+  column-gap: 2rem;
+  align-items: start;
+  /* default vertical drop for the sidebar; tune globally here */
+  --sidebar-offset: 48px;
+}
+
+/* Per-section override (if you want a different drop on childhood pages) */
+.page.page--left-sidebar.page--childhood {
+  --sidebar-offset: 100px; /* change this number to move the sidebar down/up */
+}
+
+.page.page--left-sidebar.page--bibliography {
+  --sidebar-offset: 100px;
+}
+
+.page.page--bibliography article h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Place the children explicitly in the grid and apply the drop */
+@media (min-width: 721px) {
+  .page.page--left-sidebar > .sidebar {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: var(--sidebar-offset) !important; /* <-- this is the drop */
+    float: none;
+  }
+
+  .page.page--left-sidebar > article {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: none; /* optional reading width */
+    min-width: 0;    /* avoid overflow in grid */
+  }
+}
+
+.page--home-grid {
+  
+  display: block; 
+} /* force single-column on home */
+
+
+  /* Home page remains single-column */
+  .page.page--home {
+    padding-left: 1rem;
+    }
+
+    /* Trim default top margin of first heading in main */
+   main > h1:first-child { 
+      margin-top: 0; 
+    }
+
+/* You removed .content; make sure old rules don’t fight us */
+.content { float: none !important; }  /* neutralize legacy float */
+
+/* Optional: if you still use .content anywhere, neutralize any legacy float that breaks layout */
+.content { float: none; }
+
+
+/* ===========================
+   Sidebar
+   =========================== */
+.sidebar {
+  width: 280px;
+  max-width: 100%;
+  position: sticky;
+  top: 1rem;
+  align-self: flex-start;
+  margin-left: 20px;             /* nudge inward from page edge */
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 24px rgba(0,0,0,.06);
+}
+
+/* Title (use if you add <h2> in the sidebar) */
+.sidebar > h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  padding: 1rem 1.25rem .5rem;
+  color: var(--ink);
+}
+
+/* Links */
+.sidebar ul { list-style: none; margin: 0; padding: 0; }
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  padding: 1rem 1.25rem;
+  position: relative;
+}
+
+/* Hover: color only (no bg shadow) */
+.sidebar a:hover {
+  background: none;
+  box-shadow: none;
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* Active link */
+.sidebar a[aria-current="page"] { color: var(--accent); }
+
+/* Style A: card with dividers + underline for active */
+.sidebar--card li + li { border-top: 1px solid var(--line); }
+.sidebar--card a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 1.25rem; right: 1.25rem; bottom: 0;
+  height: 2px; border-radius: 2px;
+  background: var(--accent);
+}
+
+/* Style: vertical blue bar INSIDE the card */
+.sidebar--bluebar {
+  border-left: none;                          /* no outer border */
+  box-shadow: inset 2px 0 0 var(--accent);    /* inner blue bar */
+}
+
+/* Hover effect for links in the bluebar sidebar */
+.sidebar--bluebar a:hover {
+  color: red; /*any color you want */
+}
+
+/* Tighter spacing for the bluebar sidebar only */
+.sidebar--bluebar {
+  --link-gap: .25rem;      /* space between items (tweak here) */
+  --link-vpad: .15rem;     /* vertical padding inside each link */
+  --link-leftpad: .7rem;   /* keep your left padding for the blue bar */
+}
+
+.sidebar--bluebar ul { 
+  margin: 0; 
+  padding: 0; 
+  list-style: none; 
+}
+
+.sidebar--bluebar li { margin: 0; }
+
+/* space between items */
+.sidebar--bluebar li + li { 
+  margin-top: var(--link-gap); 
+}
+
+/* compact link hit area */
+.sidebar--bluebar a {
+  display: block;
+  padding: var(--link-vpad) .25rem var(--link-vpad) var(--link-leftpad);
+  line-height: 1.25;
+}
+
+
+/* ---- Style B: minimal with a vertical accent bar ---- */
+.sidebar--bar {
+  border-left: 4px solid var(--accent);
+}
+.sidebar--bar a {
+  padding-left: 1rem;         /* tighter left padding with the bar */
+}
+.sidebar--bar a[aria-current="page"] {
+  background: rgba(225,17,72,0.06); /* subtle highlight */
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+
+
+/* ===========================
+   Banner
+   =========================== */
+.banner {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  line-height: 0;
+}
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Prevent margin-collapsing inside the banner container */
+#banner-placeholder { 
+     margin: 0;
+     padding: 0; 
+    }
+
+#banner-placeholder::after {
+    content: "";
+    display: block;
+    height: 1rem;   /* small elegant gap; tweak to taste (e.g., 0.75rem / 1.25rem) */
+    }
+
+  /* Full-width pages when a banner is loaded */
+.has-banner .page {
+  max-width: none;        /* remove 1200px cap */
+  padding-right: 0;       /* let text reach the right edge */
+}
+/* keep a small left gutter and the column gap */
+.has-banner .page.page--left-sidebar {
+  padding-left: 1rem;     /* optional left gutter */
+  column-gap: 2rem;       /* sidebar↔text spacing */
+}
+
+
+    /* Soft dark gradient on the RIGHT so white text pops */
+.banner::after {
+  content: "";
+  position: absolute;
+  /* right → left gradient */
+  background: linear-gradient(to right,
+    rgba(0,0,0,.55) 0%,
+    rgba(0,0,0,.35) 30%,
+    rgba(0,0,0,0) 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Overlay text on the right, vertically centered */
+.banner__text {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  transform: translateY(-50%);
+  z-index: 2;                /* above the gradient */
+  color: #fff;
+  text-align: left;
+  max-width: 38ch;
+  pointer-events: none;      /* decorative; remove if you want links */
+}
+
+/* Nice type scale */
+.banner__text .title {
+  margin-top: .25rem;
+  font-weight: 800;
+  font-size: clamp(1.25rem, 3vw, 2.25rem);
+  line-height: 1.15;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+
+
+  /* ===========================
+   Language Switch
+   =========================== */
+/* Top nav layout: left = language switch, center = menu */
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .5rem 1rem;
+}
+
+/* Keep your menu centered even with a left element present */
+.topnav .menu {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  margin-left:auto;      /* <-- pushes the menu to the right */
+  padding-right: 30px;
+}
+
+/* Language button */
+.lang-link {
+  font-weight: 600;
+  text-decoration: none;
+  padding: .28rem .7rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  line-height: 1;
+}
+.lang-link:hover { background: var(--accent); color: #fff; }
+
+
+/* ===========================
+   Footer
+   =========================== */
+footer {
+  background: var(--panel);
+  border-top: 1px solid #e5e7eb;
+  padding: 12px 16px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+/* Desktop/tablet: apply vertical offset to the sidebar */
+@media (min-width: 721px) {
+  .page.page--left-sidebar > .sidebar { margin-top: var(--sidebar-offset); }
+}
+
+/* ≤900px: nav tweaks */
+@media (max-width: 900px) {
+  nav { padding-right: 48px; }
+  nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
+  nav a { font-size: .9rem; }
+}
+
+/* ≤720px: banner text nudge */
+@media (max-width: 720px) {
+  .topnav { flex-wrap: wrap; gap: .5rem; }
+  .topnav .menu { margin-left: 0; width: 100%; justify-content: flex-end; }
+  .banner__text { left: 12px; right: auto; }
+}
+

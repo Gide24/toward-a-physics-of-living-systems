@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neuroscience</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+
+<body>
+  <header id="nav-placeholder"></header>
+  <div id="banner-placeholder"></div>
+
+  <script>
+    fetch("../nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
+
+    fetch("../banner.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner");
+      });
+  </script>
+
+  <main class="page page--left-sidebar page--bibliography">
+
+    <aside class="sidebar sidebar--bluebar" aria-label="Domaines bibliographiques">
+      <ul>
+        <li><a href="/fr/bibliography/neuroscience.html" aria-current="page">Neuroscience</a></li>
+        <li><a href="/fr/bibliography/anthropology.html">Anthropologie</a></li>
+        <li><a href="/fr/bibliography/developmental-psychology.html">Psychologie développementale</a></li>
+        <li><a href="/fr/bibliography/biology.html">Biologie</a></li>
+        <li><a href="/fr/bibliography/artificial-intelligence.html">Intelligence artificielle</a></li>
+      </ul>
+    </aside>
+
+    <article>
+      <h1>Neuroscience</h1>
+
+      <p>
+        Cette section rassemble des articles en neurosciences utilisés comme base de réflexion
+        et mis en relation avec les concepts développés sur ce site.
+      </p>
+
+      <h2>Articles</h2>
+
+      <section>
+        <p>
+          Jang, Hee Jae, et al. “Acetylcholine Demixes Heterogeneous Dopamine Signals
+          for Learning and Moving.” <em>Nature Neuroscience</em>, vol. 29, Apr. 2026,
+          pp. 840–850.
+        </p>
+
+        <p>
+          <a href="/fr/bibliography/reading-notes/jang-2026-acetylcholine-dopamine.html">
+            Fiche de lecture
+          </a>
+          |
+          <a href="/articles/jang-2026-acetylcholine-dopamine-learning-moving.pdf">
+            PDF original
+          </a>
+        </p>
+      </section>
+    </article>
+
+  </main>
+</body>
+</html>

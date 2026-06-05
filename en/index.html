@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test website — A New Model of Human Development</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <header id="nav-placeholder"></header>
+
+    <!-- Banner -->
+    <div id="banner-placeholder"></div>
+
+    <main class="page page--left-sidebar page--home-grid">
+      <aside class="home-gutter" aria-hidden="true"></aside>
+
+      <article class="content">
+        <h1>A New Model of Human Development</h1>
+        <p>This site is first and foremost a <strong>place for information</strong>,
+        a <strong>source of reflection</strong>, and a <strong>connection</strong>
+        between each of us and the world of research.</p>
+        <p>For decades, remarkable discoveries have been made—data and scientific
+        work that could have reshaped our vision of the world and of ourselves.
+        Yet these insights have not had the impact they deserve. Too often they
+        have been ignored, kept in the shadows, or confined to narrow circles.</p>
+        <p>That is why I created this <strong>space of transmission</strong>:
+        a place to share the knowledge that underpins my view of human
+        development; a place for <strong>collective reflection</strong> and
+        <strong>inner exploration</strong>; a true <strong>data hub</strong> that
+        can nourish new research and inspire different paths of inquiry.</p>
+        <p>I want this space to be <strong>accessible to everyone</strong>, beyond
+        academic or technical barriers. Here, I present <strong>my vision of
+        human development</strong>… and I invite each reader to draw from it,
+        to question it, and to help shape a broader understanding of who we are
+        and what we may become.</p>
+      </article>
+    </main>
+
+    <script>
+      // ALWAYS use absolute language-scoped paths here
+      fetch("/en/nav.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("nav-placeholder").innerHTML = html;
+
+          // Guard: ensure Home is correct (in case nav.html ever regresses)
+          const home = [...document.querySelectorAll('nav .menu a')]
+            .find(a => a.textContent.trim().toLowerCase() === 'home');
+          if (home) home.href = '/en/index.html';
+
+          // Set the language button to the FR counterpart of THIS page
+          const langBtn = document.getElementById('lang-link');
+          if (langBtn) langBtn.href = location.pathname.replace(/^\/en\//, '/fr/');
+        });
+
+      fetch("/en/banner.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("banner-placeholder").innerHTML = html;
+          document.body.classList.add("has-banner");
+        });
+    </script>
+  </body>
+</html>
