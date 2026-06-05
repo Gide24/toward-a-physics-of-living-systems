@@ -6,6 +6,7 @@
     <title>Test website — A New Model of Human Development</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
+
   <body>
 
     <!-- Navigation -->
@@ -13,6 +14,31 @@
 
     <!-- Banner -->
     <div id="banner-placeholder"></div>
+
+   <script>
+      // ALWAYS use absolute language-scoped paths here
+      fetch("nav.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("nav-placeholder").innerHTML = html;
+
+          // Guard: ensure Home is correct (in case nav.html ever regresses)
+          const home = [...document.querySelectorAll('nav .menu a')]
+            .find(a => a.textContent.trim().toLowerCase() === 'home');
+          if (home) home.href = '/en/index.html';
+
+          // Set the language button to the FR counterpart of THIS page
+          const langBtn = document.getElementById('lang-link');
+          if (langBtn) langBtn.href = location.pathname.replace(/^\/en\//, '/fr/');
+        });
+
+      fetch("banner.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("banner-placeholder").innerHTML = html;
+          document.body.classList.add("has-banner");
+        });
+    </script> 
 
     <main class="page page--left-sidebar page--home-grid">
       <aside class="home-gutter" aria-hidden="true"></aside>
@@ -38,30 +64,6 @@
         and what we may become.</p>
       </article>
     </main>
-
-    <script>
-      // ALWAYS use absolute language-scoped paths here
-      fetch("nav.html")
-        .then(r => r.text())
-        .then(html => {
-          document.getElementById("nav-placeholder").innerHTML = html;
-
-          // Guard: ensure Home is correct (in case nav.html ever regresses)
-          const home = [...document.querySelectorAll('nav .menu a')]
-            .find(a => a.textContent.trim().toLowerCase() === 'home');
-          if (home) home.href = '/en/index.html';
-
-          // Set the language button to the FR counterpart of THIS page
-          const langBtn = document.getElementById('lang-link');
-          if (langBtn) langBtn.href = location.pathname.replace(/^\/en\//, '/fr/');
-        });
-
-      fetch("/en/banner.html")
-        .then(r => r.text())
-        .then(html => {
-          document.getElementById("banner-placeholder").innerHTML = html;
-          document.body.classList.add("has-banner");
-        });
-    </script>
+   
   </body>
 </html>
