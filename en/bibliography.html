@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8"/>
@@ -10,8 +10,14 @@
   <!-- Navigation -->
   <header id="nav-placeholder"></header>
 
-  <!-- BanniÃ¨re -->
-  <div id="banner-placeholder"></div>
+  <!-- Bannière -->
+  
+  <div class="banner">
+    <img src="../images/neuron-banner.jpg" alt="Neural network abstract background" />
+  <div class="banner__text" aria-hidden="true">
+  <div class="title">A Model of Human Development</div>
+  </div>
+  </div>
 
   <script>
     // Nav FR
@@ -20,14 +26,7 @@
     .then(html => {
       document.getElementById("nav-placeholder").innerHTML = html;
     })
-  
-  fetch("banner.html")
-    .then(r => r.text())
-    .then(html => {
-      document.getElementById("banner-placeholder").innerHTML = html;
-      document.body.classList.add("has-banner");
-    })
-    
+     
     </script>
 
   <!-- Contenu -->
@@ -44,8 +43,7 @@
     </aside>
 
     <article>
-       <article>
-    <h1>bibliography</h1>
+       <h1>bibliography</h1>
 
     <p>
       This section gathers the scientific articles that contribute to the ideas and 

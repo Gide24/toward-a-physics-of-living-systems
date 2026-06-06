@@ -13,21 +13,20 @@
   <header id="nav-placeholder"></header>
 
   <!-- Banner -->
-  <div id="banner-placeholder"></div>
+  <div class="banner">
+     <img src="../../../images/neuron-banner.jpg" alt="Neural network abstract background" />
+     <div class="banner__text" aria-hidden="true">
+     <div class="title">A Model of Human Development</div>
+     </div>
+   </div>
 
   <script>
-    fetch("../../nav.html")
+    fetch("../../nav-reading.html")
       .then(r => r.text())
       .then(html => {
         document.getElementById("nav-placeholder").innerHTML = html;
       });
 
-    fetch("../../banner.html")
-      .then(r => r.text())
-      .then(html => {
-        document.getElementById("banner-placeholder").innerHTML = html;
-        document.body.classList.add("has-banner");
-      });
   </script>
 
   <main class="page page--left-sidebar page--bibliography">
@@ -35,11 +34,11 @@
     <aside class="sidebar sidebar--bluebar" aria-label="Bibliography fields">
 
       <ul>
-        <li><a href="/en/bibliography/neuroscience.html"> Neuroscience </a></li>
-        <li><a href="/en/bibliography/anthropology.html">Anthropology</a></li>
-        <li><a href="/en/bibliography/developmental-psychology.html">Developmental Psychology</a></li>
-        <li><a href="/en/bibliography/biology.html">Biology</a></li>
-        <li><a href="/en/bibliography/artificial-intelligence.html">Artificial Intelligence</a></li>
+        <li><a href="../neuroscience.html"> Neuroscience </a></li>
+        <li><a href="../anthropology.html">Anthropology</a></li>
+        <li><a href="../developmental-psychology.html">Developmental Psychology</a></li>
+        <li><a href="../biology.html">Biology</a></li>
+        <li><a href="../artificial-intelligence.html">Artificial Intelligence</a></li>
       </ul>
 
     </aside>

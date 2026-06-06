@@ -12,8 +12,13 @@
     <!-- Navigation -->
     <header id="nav-placeholder"></header>
 
-    <!-- Banner -->
-    <div id="banner-placeholder"></div>
+   <!-- Banner -->
+    <div class="banner">
+      <img src="../images/neuron-banner.jpg" alt="Neural network abstract background" />
+      <div class="banner__text" aria-hidden="true">
+      <div class="title">A Model of Human Development</div>
+      </div>
+    </div>
 
    <script>
       // ALWAYS use absolute language-scoped paths here
@@ -32,13 +37,7 @@
           if (langBtn) langBtn.href = location.pathname.replace(/^\/en\//, '/fr/');
         });
 
-      fetch("banner.html")
-        .then(r => r.text())
-        .then(html => {
-          document.getElementById("banner-placeholder").innerHTML = html;
-          document.body.classList.add("has-banner");
-        });
-    </script> 
+     </script> 
 
     <main class="page page--left-sidebar page--home-grid">
       <aside class="home-gutter" aria-hidden="true"></aside>

@@ -9,32 +9,33 @@
 
 <body>
   <header id="nav-placeholder"></header>
-  <div id="banner-placeholder"></div>
+  
+  <!-- Banner -->
+  <div class="banner">
+  <img src="../../../images/neuron-banner.jpg" alt="Arrière-plan neuronal abstrait" />
+  <div class="banner__text" aria-hidden="true">
+    <div class="title">Un Modèle du Développement Humain</div>
+  </div>
+</div>
 
   <script>
-    fetch("../../nav.html")
+    fetch("../../nav-reading.html")
       .then(r => r.text())
       .then(html => {
         document.getElementById("nav-placeholder").innerHTML = html;
       });
 
-    fetch("../../banner.html")
-      .then(r => r.text())
-      .then(html => {
-        document.getElementById("banner-placeholder").innerHTML = html;
-        document.body.classList.add("has-banner");
-      });
   </script>
 
   <main class="page page--left-sidebar page--bibliography">
 
     <aside class="sidebar sidebar--bluebar" aria-label="Domaines bibliographiques">
       <ul>
-        <li><a href="/fr/bibliography/neuroscience.html">Neuroscience</a></li>
-        <li><a href="/fr/bibliography/anthropology.html">Anthropologie</a></li>
-        <li><a href="/fr/bibliography/developmental-psychology.html">Psychologie développementale</a></li>
-        <li><a href="/fr/bibliography/biology.html">Biologie</a></li>
-        <li><a href="/fr/bibliography/artificial-intelligence.html">Intelligence artificielle</a></li>
+        <li><a href="../neuroscience.html">Neuroscience</a></li>
+        <li><a href="../anthropology.html">Anthropologie</a></li>
+        <li><a href="../developmental-psychology.html">Psychologie développementale</a></li>
+        <li><a href="../biology.html">Biologie</a></li>
+        <li><a href="../artificial-intelligence.html">Intelligence artificielle</a></li>
       </ul>
     </aside>
 
