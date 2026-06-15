@@ -29,27 +29,7 @@
         fixLangLink();   // set the counterpart path
     });
 
-  // Compute counterpart path (/en/... ↔ /fr/...)
-  function fixLangLink() {
-    const link = document.getElementById("lang-link");
-    if (!link) return;
-
-    const p = location.pathname;
-    const target =
-      p.startsWith("/en/") ? p.replace(/^\/en\//, "/fr/") :
-      p.startsWith("/fr/") ? p.replace(/^\/fr\//, "/en/") :
-      (document.documentElement.lang === "fr" ? "/en/index.html" : "/fr/index.html");
-
-    link.setAttribute("href", target);
-  }
-      
-      // Charger la bannière FR
-      fetch("banner.html")
-        .then(r => r.text())
-        .then(html => {
-          document.getElementById("banner-placeholder").innerHTML = html;
-        });
-        
+       
     </script>
 
     <main class="page page--left-sidebar page--home-grid">

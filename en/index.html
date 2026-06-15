@@ -26,12 +26,7 @@
         .then(r => r.text())
         .then(html => {
           document.getElementById("nav-placeholder").innerHTML = html;
-
-        // Set the language button to the FR counterpart of THIS page
-          const langBtn = document.getElementById('lang-link');
-          if (langBtn) langBtn.href = location.pathname.replace(/^\/en\//, '/fr/');
-        });
-
+         });
      </script> 
 
     <main class="page page--left-sidebar page--home-grid">
