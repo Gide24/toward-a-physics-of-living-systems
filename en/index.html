@@ -27,12 +27,7 @@
         .then(html => {
           document.getElementById("nav-placeholder").innerHTML = html;
 
-          // Guard: ensure Home is correct (in case nav.html ever regresses)
-          const home = [...document.querySelectorAll('nav .menu a')]
-            .find(a => a.textContent.trim().toLowerCase() === 'home');
-          if (home) home.href = '/en/index.html';
-
-          // Set the language button to the FR counterpart of THIS page
+        // Set the language button to the FR counterpart of THIS page
           const langBtn = document.getElementById('lang-link');
           if (langBtn) langBtn.href = location.pathname.replace(/^\/en\//, '/fr/');
         });
