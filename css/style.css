@@ -356,6 +356,16 @@ nav a:hover {
   text-shadow: 0 2px 8px rgba(0,0,0,.35);
 }
 
+/* ==========================
+   Reading Notes
+   ========================== */
+.tight-title {
+  margin-bottom: 0;
+}   
+
+.article-pdf {
+   margin-top: 0;
+}
 
   /* ===========================
    Language Switch
