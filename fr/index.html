@@ -11,30 +11,20 @@
     <!-- Navigation -->
     <header id="nav-placeholder"></header>
 
+    <!-- Chargement de la navigation -->
+    <script src="../js/navigation.js"></script>
+
     <!-- Bannière -->
-    
-      <!-- Banner -->
-   <div class="banner">
-    <img src="../images/neuron-banner.jpg" alt="Neural network abstract background" />
+    <div class="banner">
+      <img src="../images/neuron-banner.jpg" alt="Neural network abstract background" />
       <div class="banner__text" aria-hidden="true">
         <div class="title">
-      Vers<br> une Physique<br> des Systèmes vivants
+          Vers<br> une Physique<br> des Systèmes vivants
         </div>
       </div>
-  </div>
-
-    <script>
-    // Load the local nav.html (works in /en/ and /fr/)
-    fetch("nav.html")
-      .then(r => r.text())
-      .then(html => {
-        document.getElementById("nav-placeholder").innerHTML = html;
-        fixLangLink();   // set the counterpart path
-    });
-
+    </div>
        
-    </script>
-
+   
     <main class="page page--left-sidebar page--home-grid">
       <!-- fin liseré pour mimer la position de la sidebar -->
       <aside class="home-gutter" aria-hidden="true"></aside>

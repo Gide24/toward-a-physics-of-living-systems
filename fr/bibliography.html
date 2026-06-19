@@ -8,27 +8,22 @@
 </head>
 <body>
   <!-- Navigation -->
-  <header id="nav-placeholder"></header>
+<header id="nav-placeholder"></header>
 
-  <!-- Bannière -->
-  <div id="banner-placeholder"></div>
+<!-- Chargement de la navigation -->
+<script src="../js/navigation.js"></script>
 
-  <script>
-    // Nav FR
-  fetch("nav.html")
-    .then(r => r.text())
-    .then(html => {
-      document.getElementById("nav-placeholder").innerHTML = html;
-    })
-  
+<!-- Bannière -->
+<div id="banner-placeholder"></div>
+
+<script>
   fetch("banner.html")
     .then(r => r.text())
     .then(html => {
       document.getElementById("banner-placeholder").innerHTML = html;
       document.body.classList.add("has-banner");
-    })
-    
-    </script>
+    });
+</script>
 
   <!-- Contenu -->
   <main class="page page--left-sidebar page--bibliography">
