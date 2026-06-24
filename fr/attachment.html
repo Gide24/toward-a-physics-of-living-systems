@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>L'Attachement</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+    <!-- Navigation -->
+<header id="nav-placeholder"></header>
+
+<!-- Chargement de la navigation -->
+<script src="../js/navigation.js"></script>
+
+<!-- Bannière -->
+<div id="banner-placeholder"></div>
+
+<script>
+  fetch("banner.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("banner-placeholder").innerHTML = html;
+      document.body.classList.add("has-banner");
+    });
+</script>
+
+  <!-- Contenu -->
+  <main class="page page--left-sidebar page--bibliography">
+
+    <aside class="sidebar sidebar--bluebar" aria-label="Section Attachement">
+        <ul>
+            <li><a href="attachment.html">A voir</a></li>
+        </ul>
+    </aside>
+
+    <article>
+      <h1>L'Attachement</h1>
+
+    <p>
+      A venir
+    </p>
+  </article>

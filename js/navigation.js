@@ -49,6 +49,7 @@ function setupNav(path, currentLang, otherLang) {
   const langLink = document.getElementById("lang-link");
   const homeLink = document.getElementById("home-link");
   const biblioLink = document.getElementById("biblio-link");
+  const attachlink = document.getElementById("attach-link")
 
   if (langLink) {
     langLink.href = path.replace("/" + currentLang + "/", "/" + otherLang + "/");
@@ -61,5 +62,9 @@ function setupNav(path, currentLang, otherLang) {
 
   if (biblioLink) {
     biblioLink.href = prefix + "bibliography.html";
+  }
+
+  if (attachlink) {
+    attachlink.href = prefix + "attachment.html"
   }
 }
