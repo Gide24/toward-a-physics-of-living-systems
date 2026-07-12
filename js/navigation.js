@@ -65,6 +65,6 @@ function setupNav(path, currentLang, otherLang) {
   }
 
   if (attachlink) {
-    attachlink.href = prefix + "attachment.html"
+    attachlink.href = prefix + "attachment.html";
   }
 }
