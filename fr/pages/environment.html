@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Environnement</title>
+
+    <link rel="stylesheet" href="../../css/style.css" />
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header id="nav-placeholder"></header>
+
+    <!-- Chargement de la navigation -->
+    <script src="../../js/navigation.js"></script>
+
+    <!-- Bannière -->
+    <div id="banner-placeholder"></div>
+
+    <script>
+        fetch("../banner.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("banner-placeholder").innerHTML = html;
+                document.body.classList.add("has-banner");
+            });
+    </script>
+
+    <!-- Contenu -->
+    <main class="page page--left-sidebar page--bibliography">
+
+        <aside class="sidebar sidebar--bluebar" aria-label="Section Attachement">
+            <ul>
+                <li><a href="proximity.html">Proximité</a></li>
+                <li><a href="reference-point.html">Repères Spatio-temporels</a></li>
+                <li><a href="continuity.html">Continuité</a></li>
+                <li><a href="reference-frame.html"> Référentiel</a></li>
+                <li><a href="system-orientation.html">Orientation du système</a></li>
+                <li><a href="environment.html">Environnement</a></li>
+            </ul>
+        </aside>
+
+        <article class="content">
+
+            <h1>L'environnement</h1>
+
+            <p>
+             « L'environnement du jeune système est constitué de l'ensemble des propriétés auxquelles il peut effectivement accéder. »
+            </p>
+            <p> Il désigne l'ensemble des propriétés accessibles au système.</p>
+        </article>
